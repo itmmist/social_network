@@ -9,7 +9,7 @@ function App() {
     <div className='wrapper'>
       <Header />
       <NavBar />
-      <Profile />
+      <Profile name={'Илон Маск'}/>
     </div>
   );
 }
