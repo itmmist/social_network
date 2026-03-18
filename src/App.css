@@ -11,7 +11,8 @@ body{
   display: grid;
   grid-template-areas: 
   'header header'
-  'navBar profile';
+  'navBar profile'
+  'navBar messages';
   gap: 10px;
   grid-template-columns: 2fr 10fr;
 }
@@ -27,4 +28,7 @@ body{
 }
 .profile{
   grid-area: profile;
+}
+.message{
+  grid-area: messages;
 }

@@ -9,6 +9,8 @@ function Profile(props){
         <div className='me'>
           <img src={img_big} alt="" />
           <p>{props.name}</p>
+          <p>{props.status}</p>
+          <p>{props.livein}</p>
         </div>
         <Posts message={props.message}/>
       </div>
