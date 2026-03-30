@@ -21,3 +21,8 @@
 .me p{
     margin-left: 10px;
 }
+.likes{
+    background-color: white;
+    border-radius: 10px;
+    padding: 5px;
+}

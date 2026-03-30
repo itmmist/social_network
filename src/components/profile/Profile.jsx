@@ -7,7 +7,7 @@ function Profile(props){
     return(
       <div className='profile'>
         <Profile_info />
-        <Posts message={props.message}/>
+        <Posts posts_messages={props.posts_messages}/>
       </div>
     )
 }

@@ -1,15 +1,12 @@
 import React from "react";
 import Post from "./post/Post";
 
-
-function Posts(){
+function Posts(props){
     return(
         <div className='posts'>
           <input type="text" placeholder='напишите пост'/>
           <button>добавить пост</button>
-          <Post message='привет'/>
-          <Post message='как дела?'/>
-          <Post message='чем занимаешься?'/>
+          {props.posts_messages.map((e) => <Post message={e.message} id={e.id} likes={e.likes}/>)}
         </div>
     )
 }
