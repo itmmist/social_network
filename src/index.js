@@ -3,13 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-let posts_messages = [{message : 'привет', id : 1, likes : 34}, {message : 'как дела?', id : 2, likes : 85}, {message : 'чем занимаешься?', id : 3, likes : 22}]
+import state from './Data/state'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App 
-    posts_messages={posts_messages}
+    <App state = {state} 
+    // posts_messages={posts_messages}
+    // dialogNames={dialogNames}
+    // dialogMessages={dialogMessages}
     />
   </React.StrictMode>
 );

@@ -2,17 +2,16 @@ import React from 'react'
 import './dialogs.css'
 import Dialog_messages_item from './dialogs_item/dialogs_item'
 import Message from './message/message'
-let dialogNames = [{name : 'Иван Иванов', id : 1}, {name : 'Дональд Трамп', id : 2}, {name : 'Билл Гейтс', id : 3}]
-let dialogMessages = [{message : 'привет', id : 1}, {message : 'где моя ракета?', id : 2}, {message : 'где мой чип?', id : 3}]
+
 
 function Messages(props){
     return(
       <div className='messages'>
         <div className='contacts'>
-          {dialogNames.map((e) => <Dialog_messages_item name={e.name} id={e.id}/>)}
+          {props.dialogs_page.dialogNames.map((e) => <Dialog_messages_item name={e.name} id={e.id}/>)}
         </div>
         <div className='chats'>
-          {dialogMessages.map((e) => <Message message={e.message} id={e.id}/>)}
+          {props.dialogs_page.dialogMessages.map((e) => <Message message={e.message} id={e.id}/>)}
         </div>
         {/* <div className='contacts'>
           <Dialog_messages_item id={dialogNames[0].id} name={dialogNames[0].name}/>
