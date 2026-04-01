@@ -8,10 +8,10 @@ function Messages(props){
     return(
       <div className='messages'>
         <div className='contacts'>
-          {props.dialogs_page.dialogNames.map((e) => <Dialog_messages_item name={e.name} id={e.id}/>)}
+          {props.dialogNames.map((e) => <Dialog_messages_item name={e.name} id={e.id}/>)}
         </div>
         <div className='chats'>
-          {props.dialogs_page.dialogMessages.map((e) => <Message message={e.message} id={e.id}/>)}
+          {props.dialogMessages.map((e) => <Message message={e.message} id={e.id}/>)}
         </div>
         {/* <div className='contacts'>
           <Dialog_messages_item id={dialogNames[0].id} name={dialogNames[0].name}/>

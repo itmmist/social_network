@@ -4,11 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import state from './Data/state'
+import {add_post} from './Data/state'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App state = {state} 
+    <App state = {state} add_post = {add_post}
     // posts_messages={posts_messages}
     // dialogNames={dialogNames}
     // dialogMessages={dialogMessages}

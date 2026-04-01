@@ -13,8 +13,25 @@ let state = {
         dialogMessages: [
             {message : 'привет', id : 1}, 
             {message : 'где моя ракета?', id : 2}, 
-            {message : 'где мой чип?', id : 3}]
+            {message : 'где мой чип?', id : 3}],
+    },
+    nav_menu: {
+        friends: [
+            {name : 'Иван Иванов', ava : 'Иван_иванов.jpeg'},
+            {name : 'Дональд Трамп', ava : 'дональд_трамп.jpeg'},
+            {name : 'Билл Гейтс', ava : 'билл_гейтс.jpeg'},
+        ]
     }
+}
+
+export let add_post = (post_text) => {
+    let new_post = {
+        text : post_text,
+        id : 4,
+        likes : 0,
+    }
+    state.profile_page.posts_messages.push(new_post)
+    console.log(state)
 }
     
 export default state
