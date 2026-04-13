@@ -6,6 +6,7 @@ let state = {
             {message : 'привет', id : 1, likes : 34}, 
             {message : 'как дела?', id : 2, likes : 85}, 
             {message : 'чем занимаешься?', id : 3, likes : 22}],
+            newPostText : 'hello'
     },
     dialogs_page: {
         dialogNames: [
