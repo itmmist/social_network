@@ -3,20 +3,21 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import state from './Data/state'
+// import state from './Data/state'
 import {add_post} from './Data/state'
+import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min';
 import { send_message } from './Data/state';
 
-export let rerenderTree = () => {
+export let rerenderTree = (state) => {
   const root = ReactDOM.createRoot(document.getElementById('root'));
   root.render(
-  <React.StrictMode>
+    <BrowserRouter>
     <App state = {state} add_post = {add_post} send_message = {send_message}
     // posts_messages={posts_messages}
     // dialogNames={dialogNames}
     // dialogMessages={dialogMessages}
     />
-    </React.StrictMode>
+    </BrowserRouter>
 );
 }
 rerenderTree()

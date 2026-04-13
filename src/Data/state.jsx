@@ -28,11 +28,11 @@ let state = {
 
 export let add_post = (post_text) => {
     let new_post = {
-        text : post_text,
+        message : post_text,
         id : 4,
         likes : 0,
     }
-    state.profile_page.posts_messages.push(new_post)
+    state.profile_page.posts_messages.unshift(new_post)
     // console.log(state)
     rerenderTree(state)
     // console.log(post_text)
@@ -40,11 +40,12 @@ export let add_post = (post_text) => {
     
 export let send_message = (message_text) => {
     let new_message = {
-        text : message_text,
+        message : message_text,
         id : 4,
     }
     state.dialogs_page.dialogMessages.push(new_message)
     console.log(state)
+    rerenderTree(state)
 }
 
 export default state
