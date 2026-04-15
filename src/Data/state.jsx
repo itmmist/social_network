@@ -49,4 +49,10 @@ export let send_message = (message_text) => {
     rerenderTree(state)
 }
 
+export let onPostChange = (text) => {
+    state.profile_page.newPostText = text
+    rerenderTree(state)
+}
+
+
 export default state

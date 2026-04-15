@@ -7,12 +7,13 @@ import reportWebVitals from './reportWebVitals';
 import {add_post} from './Data/state'
 import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min';
 import { send_message } from './Data/state';
+import { onPostChange } from './Data/state';
 
 export let rerenderTree = (state) => {
   const root = ReactDOM.createRoot(document.getElementById('root'));
   root.render(
     <BrowserRouter>
-    <App state = {state} add_post = {add_post} send_message = {send_message}
+    <App state = {state} add_post = {add_post} send_message = {send_message} onPostChange = {onPostChange}
     // posts_messages={posts_messages}
     // dialogNames={dialogNames}
     // dialogMessages={dialogMessages}

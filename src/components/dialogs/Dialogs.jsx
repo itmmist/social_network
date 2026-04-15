@@ -2,12 +2,16 @@ import React from 'react'
 import './dialogs.css'
 import Dialog_messages_item from './dialogs_item/dialogs_item'
 import Message from './message/message'
+import { onPostChange } from '../../Data/state';
 let message_text = React.createRef();
 
-function Messages(props){
+function Dialogs(props){
   let send_message = () => {
-    props.send_message(message_text.current.value)
+    let text = message_text.current.value
+    props.send_message(text)
+    message_text.current.value = ''
   }
+  console.log(props)
     return(
       <div className='messages'>
         <div className='contacts'>
@@ -18,11 +22,11 @@ function Messages(props){
         </div>
 
         <div className='new_message'>
-          <input className='messages_input' ref={message_text} placeholder='введите сообщение'/>
+          <input onChange={onPostChange} className='messages_input' ref={message_text} placeholder='введите сообщение'/>
           <button onClick={send_message} className='messages_btn'>отправить</button>
         </div>
       </div>
     )
 }
 
-export default Messages
+export default Dialogs
