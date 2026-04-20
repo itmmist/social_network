@@ -9,8 +9,8 @@ import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min';
 import { send_message } from './Data/state';
 import { onPostChange } from './Data/state';
 
+const root = ReactDOM.createRoot(document.getElementById('root'));
 export let rerenderTree = (state) => {
-  const root = ReactDOM.createRoot(document.getElementById('root'));
   root.render(
     <BrowserRouter>
     <App state = {state} add_post = {add_post} send_message = {send_message} onPostChange = {onPostChange}

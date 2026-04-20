@@ -7,10 +7,14 @@ function Posts(props){
   let add_post = () => {
     // alert(post_text.current.value)
     props.add_post(post_text.current.value)
+    post_text.current.value = ''
+  }
+  let onPostChange = () => {
+    props.onPostChange(post_text.current.value)
   }
     return(
         <div className='posts'>
-          <input ref={post_text} type="text" placeholder='напишите пост' value={props.newPostText}/>
+          <input onChange={onPostChange} ref={post_text} type="text" placeholder='напишите пост' value={props.newPostText}/>
           <button onClick={add_post}>добавить пост</button>
           {/* <input type="text" placeholder="" value={props.new_post-text}/> */}
           {props.posts_messages.map((e) => <Post message={e.message} id={e.id} likes={e.likes}/>)}

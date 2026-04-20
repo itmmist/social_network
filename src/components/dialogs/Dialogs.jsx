@@ -2,7 +2,6 @@ import React from 'react'
 import './dialogs.css'
 import Dialog_messages_item from './dialogs_item/dialogs_item'
 import Message from './message/message'
-import { onPostChange } from '../../Data/state';
 let message_text = React.createRef();
 
 function Dialogs(props){
@@ -12,6 +11,9 @@ function Dialogs(props){
     message_text.current.value = ''
   }
   console.log(props)
+  let onPostChange = () => {
+    props.onPostChange(message_text.current.value)
+  }
     return(
       <div className='messages'>
         <div className='contacts'>
