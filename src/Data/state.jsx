@@ -1,4 +1,3 @@
-import {rerenderTree} from '../render.jsx'
 
 let state = {
     profile_page: {
@@ -54,5 +53,13 @@ export let onPostChange = (text) => {
     rerenderTree(state)
 }
 
+let rerenderTree = () => {
+    console.log(window.state = state)
+}
+
+export let subscribe = (observer) => {
+    rerenderTree = observer
+}
+ 
 
 export default state
