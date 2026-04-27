@@ -1,23 +1,19 @@
-import state, { subscribe } from "./Data/state";
-
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {add_post} from './Data/state'
 import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min';
-import { send_message } from './Data/state';
-import { onPostChange } from './Data/state';
+import store from "./Data/state";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 export let rerenderTree = (state) => {
   root.render(
     <BrowserRouter>
-    <App state = {state} add_post = {add_post} send_message = {send_message} onPostChange = {onPostChange}/>
+    <App state = {state} add_post = {store.add_post.bind(store)} send_message = {store.send_message.bind(store)} onPostChange = {store.onPostChange.bind(store)}/>
     </BrowserRouter>
 );
 }
-rerenderTree(state)
-subscribe(rerenderTree)
+rerenderTree(store.getState())
+store.subscribe(rerenderTree)
 reportWebVitals();
