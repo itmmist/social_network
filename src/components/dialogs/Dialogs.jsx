@@ -6,25 +6,23 @@ let message_text = React.createRef();
 
 function Dialogs(props){
   let send_message = () => {
-    let text = message_text.current.value
-    props.send_message(text)
-    message_text.current.value = ''
+    props.dispath({type : 'SEND-MESSAGE'})
   }
-  console.log(props)
-  let onPostChange = () => {
-    props.onPostChange(message_text.current.value)
+  let onMessageChange = () => {
+    let text = message_text.current.value
+    props.dispath({type : 'UPDATE-NEWMESSAGETEXT', new_text : text})
   }
     return(
       <div className='messages'>
         <div className='contacts'>
-          {props.dialogNames.map((e) => <Dialog_messages_item name={e.name} id={e.id}/>)}
+          {props.dialogPage.dialogNames.map((e) => <Dialog_messages_item name={e.name} key={e.id} id={e.id}/>)}
         </div>
         <div className='chats'>
-          {props.dialogMessages.map((e) => <Message message={e.message} id={e.id}/>)}
+          {props.dialogPage.dialogMessages.map((e) => <Message message={e.message} key={e.id} id={e.id}/>)}
         </div>
 
         <div className='new_message'>
-          <input onChange={onPostChange} className='messages_input' ref={message_text} placeholder='введите сообщение'/>
+          <input onChange={onMessageChange} className='messages_input' ref={message_text} placeholder='введите сообщение'/>
           <button onClick={send_message} className='messages_btn'>отправить</button>
         </div>
       </div>

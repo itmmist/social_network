@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 export let rerenderTree = (state) => {
   root.render(
     <BrowserRouter>
-    <App state = {state} dispatch = {store.dispatch.bind(store)} send_message = {store.send_message.bind(store)}/>
+    <App state = {state} dispatch = {store.dispatch.bind(store)}/>
     </BrowserRouter>
 );
 }

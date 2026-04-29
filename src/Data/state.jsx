@@ -16,6 +16,7 @@ let store = {
                 {message : 'привет', id : 1}, 
                 {message : 'где моя ракета?', id : 2}, 
                 {message : 'где мой чип?', id : 3}],
+                newMessageText : ''
         },
         nav_menu: {
             friends: [
@@ -24,15 +25,6 @@ let store = {
                 {name : 'Билл Гейтс', ava : 'билл_гейтс.jpeg'},
             ]
         }
-    },
-        
-    send_message(message_text) {
-        let new_message = {
-            message : message_text,
-            id : 4,
-        }
-        this._state.dialogs_page.dialogMessages.push(new_message)
-        this.rerenderTree(this._state)
     },
 
     rerenderTree(){
@@ -59,6 +51,16 @@ let store = {
         }
         else if (action.type == 'POST-CHANGE'){
             this._state.profile_page.newPostText = action.text
+            this.rerenderTree(this._state)
+        }
+        else if (action.type == 'UPDATE-NEWMESSAGETEXT'){
+            this._state.dialogs_page.newMessageText = action.new_text
+            this.rerenderTree(this._state)
+        }
+        else if (action.type == 'SEND-MESSAGE'){
+            let body = this._state.dialogs_page.newMessageText;
+            this._state.dialogs_page.newMessageText = '';
+            this._state.dialogs_page.dialogMessages.push({id : 5, message : body})
             this.rerenderTree(this._state)
         }
     }
