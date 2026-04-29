@@ -25,28 +25,13 @@ let store = {
             ]
         }
     },
-
-    add_post(post_text) {
-        let new_post = {
-            message : post_text,
-            id : 4,
-            likes : 0,
-        }
-        this._profile_page.posts_messages.unshift(new_post)
-        this.rerenderTree(this._state)
-    },
         
     send_message(message_text) {
         let new_message = {
             message : message_text,
             id : 4,
         }
-        this._dialogs_page.dialogMessages.push(new_message)
-        this.rerenderTree(this._state)
-    },
-
-    onPostChange(text){
-        this._profile_page.newPostText = text
+        this._state.dialogs_page.dialogMessages.push(new_message)
         this.rerenderTree(this._state)
     },
 
@@ -60,7 +45,22 @@ let store = {
     
     getState(){
         return this._state
-    }
+    },
     
+    dispatch(action){
+        if (action.type == 'ADD-POST'){
+            let new_post = {
+                message : this._state.profile_page.newPostText,
+                id : 4,
+                likes : 0,
+            }
+            this._state.profile_page.posts_messages.unshift(new_post)
+            this.rerenderTree(this._state)
+        }
+        else if (action.type == 'POST-CHANGE'){
+            this._state.profile_page.newPostText = action.text
+            this.rerenderTree(this._state)
+        }
+    }
 }
 export default store
