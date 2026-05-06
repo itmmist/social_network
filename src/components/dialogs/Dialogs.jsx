@@ -6,11 +6,11 @@ let message_text = React.createRef();
 
 function Dialogs(props){
   let send_message = () => {
-    props.dispath({type : 'SEND-MESSAGE'})
+    props.dispatch({type : 'SEND-MESSAGE'})
   }
   let onMessageChange = () => {
     let text = message_text.current.value
-    props.dispath({type : 'UPDATE-NEWMESSAGETEXT', new_text : text})
+    props.dispatch({type : 'UPDATE-NEWMESSAGETEXT', new_text : text})
   }
     return(
       <div className='messages'>
@@ -22,7 +22,7 @@ function Dialogs(props){
         </div>
 
         <div className='new_message'>
-          <input onChange={onMessageChange} className='messages_input' ref={message_text} placeholder='введите сообщение'/>
+          <input onChange={onMessageChange} className='messages_input' ref={message_text} value={props.dialogsPage.newMessageText} placeholder='введите сообщение'/>
           <button onClick={send_message} className='messages_btn'>отправить</button>
         </div>
       </div>
