@@ -22,7 +22,7 @@ function Dialogs(props){
         </div>
 
         <div className='new_message'>
-          <input onChange={onMessageChange} className='messages_input' ref={message_text} value={props.dialogsPage.newMessageText} placeholder='введите сообщение'/>
+          <input onChange={onMessageChange} className='messages_input' ref={message_text} value={props.dialogPage.newMessageText} placeholder='введите сообщение'/>
           <button onClick={send_message} className='messages_btn'>отправить</button>
         </div>
       </div>
